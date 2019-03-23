@@ -21,7 +21,7 @@ app.intent('profile name', (conv, {profile_name}) => {
  var config = {
   headers: {'profile': 'darshan'}
 };
- axios.get('https://2f7wrz7c6b.execute-api.ap-south-1.amazonaws.com/dev/s3/buckets',config)
+ axios.get('https:/-1.amazonaws.com/dev/s3/buckets',config)
   .then(response => {
     console.log(response.data);
    name=JSON.stringify(response.data);
