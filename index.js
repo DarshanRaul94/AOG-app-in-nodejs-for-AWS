@@ -21,7 +21,7 @@ app.intent('profile name', (conv, {profile_name}) => {
  var config = {
   headers: {'profile': 'darshan'}
 };
- axios.get('https://2f7wrz7c6baws.com/dev/s3/buckets',config)
+ axios.get('https://2f7wrz7c6b.execute-api.ap-south-1.amazonaws.com/dev/s3/buckets',config)
   .then(response => {
     console.log(response.data);
    name=response.data.buckets;
@@ -31,7 +31,7 @@ app.intent('profile name', (conv, {profile_name}) => {
   }); 
     // Respond with the user's lucky number and end the conversation.
   
-    conv.ask('Hi ' + name + '.Which A.W.S service do you want to use ?');
+    conv.ask('Hi!Which A.W.S service do you want to use ?');
 });
 app.intent('service name', (conv, {service_name}) => {
   const service = service_name;
@@ -41,7 +41,7 @@ app.intent('service name', (conv, {service_name}) => {
   text: 'These are the buckets in your S3 account',
 }));
     conv.ask(new BasicCard({
-  text: '${name[0]}', // Note the two spaces before '\n' required for
+  text: `${name}`, // Note the two spaces before '\n' required for
                                // a line break to be rendered in the card.
   
   title: 'Buckets',
